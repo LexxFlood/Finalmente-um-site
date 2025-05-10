@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfólio de Albert Pereira</title>
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #525252;
+      color: #ffffff;  /* cor das letras */
+      line-height: 1.5;
+    }
+
+    /* Cabeçalho fixo */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(30, 60, 130, 0.9);
+      z-index: 1000;
+      padding: 12px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    header h2 {
+      color: rgb(255, 255, 255);
+      margin: 0;
+      font-weight: 600;
+      font-size: 1.5rem;
+    }
+
+    nav {
+      display: flex;
+      gap: 24px;
+    }
+
+    nav a {
+      color: rgb(255, 255, 255);
+      font-weight: bold;
+      padding: 6px 12px;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background-color: white;
+      color: #1e3c82;
+    }
+
+    /* Espaço para o header fixo */
+    main {
+      padding-top: 100px;
+      max-width: 1100px;
+      margin: 0 auto 40px auto;
+      background: #000000;  /* cor do site */
+      padding-left: 24px;
+      padding-right: 24px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+      border-radius: 8px;
+    }
+
+    /* Área azul principal centralizada */
+    .header-bg {
+      background: url('images/bg.jpg') center/cover no-repeat;
+      padding-bottom: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      text-align: center;
+      color: white;
+      border-radius: 8px 8px 0 0;
+      margin-bottom: 40px;
+    }
+
+    .header-content {
+      width: 100%;
+      max-width: 1100px;
+      padding: 24px 20px 0 20px;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+    }
+
+    .header-title h2 {
+      background: rgba(30, 60, 130, 0.7);
+      padding: 8px 32px;
+      border-radius: 8px 8px 0 0;
+      font-size: 1.4rem;
+      margin: 0 auto;
+    }
+
+    .header-content nav {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .header-content nav a {
+      color: white;
+      font-weight: bold;
+      padding: 8px 18px;
+      border-radius: 4px;
+      background: rgba(30, 60, 130, 0.3);
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .header-content nav a:hover,
+    .header-content nav a.active {
+      background: white;
+      color: #1e3c82;
+    }
+
+    .main-title-box {
+      max-width: 500px;
+      margin: 40px auto 0 auto;
+      border: 3px solid white;
+      padding: 32px 0;
+      background: rgba(0, 0, 0, 0.1);
+      text-align: center;
+      border-radius: 8px;
+    }
+
+    .main-title-box h1 {
+      font-size: 2.3rem;
+      font-weight: 400;
+      letter-spacing: 2px;
+      margin: 0;
+      line-height: 1.3;
+    }
+
+    .profile-photo {
+      position: absolute;
+      right: 60px;
+      top: 140px;
+      width: 140px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 3px solid white;
+      background: rgb(255, 0, 0);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    }
+
+    .profile-photo img {
+      width: 100%;
+      display: block;
+    }
+
+    /* Seções e linhas divisórias vermelhas */
+    section {
+      border-bottom: 2px solid #000000;
+      padding-bottom: 40px;
+      margin-bottom: 40px;
+    }
+
+    section:last-of-type {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    /* Layout das seções */
+    .intro-grid,
+    .block-section,
+    .additional-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .intro-text,
+    .block-content,
+    .additional-text {
+      flex: 1 1 400px;
+      font-size: 1.1rem;
+      line-height: 1.5;
+    }
+
+    .intro-img,
+    .block-img,
+    .additional-embed {
+      flex: 1 1 300px;
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    iframe {
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 400px;
+      height: 300px;
+    }
+
+    /* Títulos das seções */
+    .section-title {
+      color: #1e3c82;
+      font-weight: 600;
+      font-size: 1.8rem;
+      margin-bottom: 16px;
+      flex-basis: 100%;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 24px 0;
+      color: #444;
+      background: #f7f7f7;
+      font-size: 1rem;
+      margin-top: 40px;
+      border-radius: 0 0 8px 8px;
+    }
+
+    footer a {
+      color: #1e3c82;
+      text-decoration: underline;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      .intro-grid,
+      .block-section,
+      .additional-section {
+        flex-direction: column;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px 20px;
+      }
+
+      nav {
+        margin-top: 12px;
+      }
+
+      nav a {
+        margin-left: 0;
+        margin-right: 16px;
+      }
+
+      .profile-photo {
+        position: static;
+        margin: 20px auto 0 auto;
+        width: 120px;
+        border: 3px solid rgb(0, 0, 0);
+      }
+
+      .main-title-box {
+        margin: 20px auto 0 auto;
+        padding: 18px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h2>Portfólio</h2>
+    <nav>
+      <a href="#intro" class="active">Introdução</a>
+      <a href="#adicionais">Adicionais</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="header-bg">
+      <div class="header-content">
+        <div class="header-title">
+          <h2>Portfólio</h2>
+        </div>
+        <nav>
+          <a href="#intro" class="active">Introdução</a>
+          <a href="#adicionais">Adicionais</a>
+        </nav>
+      </div>
+
+      <div class="main-title-box">
+        <h1>Portfólio De<br>Albert Pereira</h1>
+      </div>
+
+      <div class="profile-photo">
+        <img src="c:\Users\User\OneDrive\Área de Trabalho\AALLBBERRT\9a20d0b5-7be0-4c81-9364-bf42fecc1fa7.jpg" alt="Albert Pereira" />
+      </div>
+    </div>
+
+    <section id="intro">
+      <h3 class="section-title">Introdução</h3>
+      <div class="intro-grid">
+        <div class="intro-text">
+          <p>
+            Sou estudante de Ciência da Computação no CEUB, cursando ainda o primeiro semestre. Estou buscando conhecimento para poder empreender na área de tecnologia e criar soluções inteligentes para os mais diversos problemas.
+          </p>
+        </div>
+        <div class="intro-img">
+          <img src="c:\Users\User\OneDrive\Área de Trabalho\AALLBBERRT\https-kinsta.comwp-contentuploads202103best-programming-language-to-learn-1024x512.webp" alt="Código" />
+        </div>
+      </div>
+
+      <div class="block-section" style="margin-top:40px;">
+        <div class="block-img">
+          <img src="c:\Users\User\OneDrive\Área de Trabalho\AALLBBERRT\code-1839406_1280.jpg" alt="Faculdade" />
+        </div>
+        <div class="block-content">
+          <h3>Faculdade</h3>
+          <p>
+            Iniciei minha jornada na computação pouco antes da faculdade, explorando inicialmente a linguagem de programação Python e, em seguida, Java. No entanto, desde o início das aulas na graduação, venho me aprofundando em C, que é a linguagem utilizada nas disciplinas do curso.
+          </p>
+        </div>
+      </div>
+
+      <div class="block-section" style="margin-top:40px; flex-direction: row-reverse;">
+        <div class="block-img">
+          <img src="c:\Users\User\OneDrive\Área de Trabalho\AALLBBERRT\cerebro-1519158256493_v2_450x450.jpg" alt="Habilidades" />
+        </div>
+        <div class="block-content">
+          <h3>Habilidades</h3>
+          <p>
+            Sou apaixonado pelo universo do áudio. Como entusiasta de fones in-ear, valorizo cada detalhe sonoro e transformo cada momento de escuta em uma verdadeira imersão musical. Prezo tanto pela qualidade sonora quanto pela excelência na construção dos aparelhos que utilizo.
+          </p>
+        </div>
+      </div>
+
+      <div class="block-section" style="margin-top:40px;">
+        <div class="block-img">
+          <img src="c:\Users\User\OneDrive\Área de Trabalho\AALLBBERRT\description-image-2_36d7629e-378d-4e4e-a607-728daede6b13_2048x2048.webp" alt="Fascínio" />
+        </div>
+        <div class="block-content">
+          <h3>Fascínio</h3>
+          <p>
+            Sou apaixonado pelo universo do áudio. Como entusiasta de fones in-ear, valorizo cada detalhe sonoro e transformo cada momento de escuta em uma verdadeira imersão musical. Prezo tanto pela qualidade sonora quanto pela excelência na construção dos aparelhos que utilizo.
+          </p>
+        </div>
+      </div>
+
+      <div class="block-section" style="margin-top:40px; align-items: center;">
+        <div class="block-content" style="flex: 2;">
+          <h3>Apresentação</h3>
+          <p>Veja mais sobre mim na apresentação ao lado.</p>
+          <a href="https://docs.google.com/" target="_blank" style="color:#1e3c82; font-weight:bold; text-decoration:underline;">Apresentação</a>
+        </div>
+        <div class="block-img" style="flex: 1;">
+          <!-- Substitua o src pelo link do seu Google Slides -->
+          <iframe src="https://docs.google.com/presentation/d/1XgCuF95iTLZWmWZTRw7dSdpFEx_AZBsGN05UwEg0_Yc/present?slide=id.g34880485153_0_0" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section id="adicionais">
+      <h3 class="section-title">Adicionais</h3>
+
+      <div class="additional-section">
+        <div class="additional-text">
+          <p>Usei o Google Agenda para mostrar um pouco de como organizo minha rotina. Segue um link abaixo para melhor visualização.</p>
+          <a href="https://calendar.google.com/" target="_blank" style="color:#1e3c82; font-weight:bold; text-decoration:underline;">Calendário</a>
+        </div>
+        <div class="additional-embed">
+          <iframe src="https://calendar.google.com/calendar/embed?src=albert.santos%40sempreceub.com" frameborder="0" scrolling="no"></iframe>
+        </div>
+      </div>
+
+      <div class="additional-section" style="margin-top:40px;">
+        <div class="additional-text">
+          <p>Aqui está meu currículo. Segue também um link abaixo para melhor visualização.</p>
+          <a href="https://docs.google.com/document/d/1lOLQFgJdQIW52H0xpwQJFeCPNpgopPnQp4bjaGOXvIw/edit?tab=t.0" target="_blank" style="color:#1e3c82; font-weight:bold; text-decoration:underline;">Currículo</a>
+        </div>
+        <div class="additional-embed">
+          <img src="https://docs.google.com/document/d/1lOLQFgJdQIW52H0xpwQJFeCPNpgopPnQp4bjaGOXvIw/edit?tab=t.0" alt="Currículo" />
+        </div>
+      </div>
+
+      <div class="additional-section" style="margin-top:40px;">
+        <div class="additional-text">
+          <p>Ao lado está um vídeo com uma breve explicação sobre o meu portfólio</p>
+          <a href="https://www.youtube.com/watch?v=KIfiLNYzmlc" target="_blank" style="color:#1e3c82; font-weight:bold; text-decoration:underline;">Vídeo</a>
+        </div>
+        <div class="additional-embed">
+          <iframe src="https://www.youtube.com/embed/KIfiLNYzmlc" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>E-mail: <a href="mailto:albert7pereira@gmail.com">albert7pereira@gmail.com</a></p>
+  </footer>
+
+  <script>
+    // Script para destacar o link ativo no menu conforme a seção visível
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll("header nav a");
+
+    window.addEventListener("scroll", () => {
+      let current = "";
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 120;
+        if (pageYOffset >= sectionTop) {
+          current = section.getAttribute("id");
+        }
+      });
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === "#" + current) {
+          link.classList.add("active");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
